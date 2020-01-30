@@ -17,7 +17,7 @@
     background-color: darkblue;
     transform-origin: 50% 100%;
     animation: rotate 60s infinite steps(60);
-    z-index: 1;
+    z-index: 2;
   }
   .min{
     position: absolute;
@@ -28,6 +28,7 @@
     background-color: black;
     transform-origin: 50% 100%;
     animation: rotate 3600s infinite linear;
+    z-index: 1;
   }
   .hours{
     position: absolute;
@@ -38,6 +39,38 @@
     background-color: black;
     transform-origin: 50% 100%;
     animation: rotate 43200s infinite linear;
+    z-index: 1;
+  }
+  .steps{
+    display: inline-block;
+    width: 8px;
+    height: 16px;
+    background-color: white;
+  }
+  .left{
+    position: absolute;
+    top: 65%;
+    left: 50%;
+    margin-left: -8px;
+    &:after{
+      content: "012345";
+      display: inline-block;
+      width: 8px;
+      overflow: hidden;
+      animation: timing-min 60s infinite step-end;
+    }
+  }
+  .right{
+    position: absolute;
+    top: 65%;
+    left: 50%;
+    &:after{
+      content: "0123456789";
+      display: inline-block;
+      width: 8px;
+      overflow: hidden;
+      animation: timing 10s infinite step-end;
+    }
   }
 }
 @keyframes rotate {
@@ -45,37 +78,7 @@
     transform: rotate(360deg);
   }
 }
-.steps{
-  display: inline-block;
-  width: 8px;
-  height: 16px;
-  background-color: white;
-}
-.left{
-  position: absolute;
-  top: 19%;
-  left: 50%;
-  margin-left: -8px;
-}
-.right{
-  position: absolute;
-  top: 19%;
-  left: 50%;
-}
-.left:after{
-  content: "012345";
-  display: inline-block;
-  width: 8px;
-  overflow: hidden;
-  animation: timing-min 60s infinite step-end;
-}
-.right:after{
-  content: "0123456789";
-  display: inline-block;
-  width: 8px;
-  overflow: hidden;
-  animation: timing 10s infinite step-end;
-}
+
 
 @keyframes timing {
   10% {
