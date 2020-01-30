@@ -1,0 +1,134 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+.clock{
+  position: relative;
+  background-image: url("../images/clock.png");
+  width: 225px;
+  height: 225px;
+  margin: 20px auto;
+  .sec{
+    position: absolute;
+    top: 0;
+    left: 49.5%;
+    width: 1%;
+    height: 50%;
+    background-color: darkblue;
+    transform-origin: 50% 100%;
+    animation: rotate 60s infinite steps(60);
+    z-index: 1;
+  }
+  .min{
+    position: absolute;
+    top: 10%;
+    left: 49%;
+    width: 2%;
+    height: 40%;
+    background-color: black;
+    transform-origin: 50% 100%;
+    animation: rotate 3600s infinite linear;
+  }
+  .hours{
+    position: absolute;
+    top: 20%;
+    left: 49%;
+    width: 2%;
+    height: 30%;
+    background-color: black;
+    transform-origin: 50% 100%;
+    animation: rotate 43200s infinite linear;
+  }
+}
+@keyframes rotate {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.steps{
+  display: inline-block;
+  width: 8px;
+  height: 16px;
+  background-color: white;
+}
+.left{
+  position: absolute;
+  top: 19%;
+  left: 50%;
+  margin-left: -8px;
+}
+.right{
+  position: absolute;
+  top: 19%;
+  left: 50%;
+}
+.left:after{
+  content: "012345";
+  display: inline-block;
+  width: 8px;
+  overflow: hidden;
+  animation: timing-min 60s infinite step-end;
+}
+.right:after{
+  content: "0123456789";
+  display: inline-block;
+  width: 8px;
+  overflow: hidden;
+  animation: timing 10s infinite step-end;
+}
+
+@keyframes timing {
+  10% {
+    text-indent: -8px;
+  }
+  20% {
+    text-indent: -16px;
+  }
+  30% {
+    text-indent: -24px;
+  }
+  40% {
+    text-indent: -32px;
+  }
+  50% {
+    text-indent: -40px;
+  }
+  60% {
+    text-indent: -48px;
+  }
+  70% {
+    text-indent: -56px;
+  }
+  80% {
+    text-indent: -64px;
+  }
+  90% {
+    text-indent: -72px;
+  }
+  100% {
+    text-indent: -80px;
+  }
+}
+@keyframes timing-min {
+  0% {
+    text-indent: 0;
+  }
+  16.66666666666667% {
+    text-indent: -8px;
+  }
+  33.33333333333333%{
+    text-indent: -16px;
+  }
+  50% {
+    text-indent: -24px;
+  }
+  66.66666666666667% {
+    text-indent: -32px;
+  }
+  83.33333333333333% {
+    text-indent: -40px;
+  }
+  100% {
+    text-indent: 0;
+  }
+}
